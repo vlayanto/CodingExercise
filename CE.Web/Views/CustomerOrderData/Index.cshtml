@@ -1,0 +1,35 @@
+﻿@model CE.Web.Models.CustomerOrderViewModel
+
+@{
+    ViewBag.Title = "Customer Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Order List</h2>
+
+<table class="table-bordered">
+    <tr>
+        <td>Customer Name</td>
+        <td>Order Name</td>
+        <td>Order Date</td>
+        <td>Price</td>
+    </tr>
+    @{ foreach (var item in Model.CustomerOrders)
+       { 
+        <tr>
+            <td>
+                @item.Customer_Name
+            </td>
+            <td>
+                @item.Order_Name
+            </td>
+            <td>
+                @item.Order_Date.ToShortDateString()
+            </td>
+            <td>
+                @item.Order_Price.ToString("c")
+            </td>
+        </tr>
+        }
+    }
+</table>
